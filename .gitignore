@@ -2,15 +2,10 @@
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
-<<<<<<< HEAD
-
-.idea/
-grep.iml
-=======
 .idea/
 *.iml
->>>>>>> parent of b1aba89... Reinit
 # User-specific stuff:
+.idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
 
@@ -24,6 +19,8 @@ grep.iml
 
 # Gradle:
 .idea/**/gradle.xml
+.idea/**/libraries
+
 # CMake
 cmake-build-debug/
 cmake-build-release/
