@@ -1,4 +1,4 @@
-package com.tools;
+package com.gladkova.katja;
 
 import org.junit.Assert;
 import org.junit.Rule;

@@ -1,4 +1,4 @@
-package com.tools;
+package com.gladkova.katja;
 
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
@@ -56,9 +56,7 @@ public class Prog {
                 String line = tmp;
                 if (ign)
                     line = tmp.toLowerCase();
-                if (inv && !line.contains(word))
-                    res.add(tmp);
-                if (!inv && line.contains(word))
+                if (inv && !line.contains(word) || !inv && line.contains(word))
                     res.add(tmp);
             }
         }
