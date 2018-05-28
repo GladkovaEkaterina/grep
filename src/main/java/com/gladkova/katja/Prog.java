@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Prog {
     @Option(name = "-i", usage = "Ignore register")
@@ -41,12 +43,13 @@ public class Prog {
     public ArrayList<String> run() throws IOException {
         BufferedReader fl = new BufferedReader(new FileReader(fname));
         ArrayList<String> res = new ArrayList<String>();
+        Pattern ptr = !ign ?  Pattern.compile(word) : Pattern.compile(word, Pattern.CASE_INSENSITIVE);
         String tmp;
         if (reg) {
             while ((tmp = fl.readLine()) != null) {
-                if (!tmp.matches(word) && inv)
+                if (!ptr.matcher(tmp).find()&& inv)
                     res.add(tmp);
-                if (tmp.matches(word) && !inv)
+                if (ptr.matcher(tmp).find() && !inv)
                     res.add(tmp);
             }
         } else {

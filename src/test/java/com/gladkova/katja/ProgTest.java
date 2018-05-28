@@ -2,6 +2,8 @@ package com.gladkova.katja;
 
 import org.junit.Assert;
 import org.junit.Rule;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.rules.TemporaryFolder;
 
@@ -19,7 +21,7 @@ class ProgTest {
     TemporaryFolder fld = new TemporaryFolder();
     private String path = null;
 
-    @org.junit.jupiter.api.BeforeAll
+    @BeforeAll
     public void setUp() throws IOException {
         File tst = null;
         try {
@@ -34,7 +36,7 @@ class ProgTest {
         wr.flush();
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void simple() {
         String[] args = {"E", path};
         ArrayList<String> strings = null;
@@ -47,7 +49,7 @@ class ProgTest {
         Assert.assertEquals(new HashSet<String>(Arrays.asList(new String[]{"tEst1"})), set);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void simpleRev() {
         String[] args = {"-v", "E", path};
         ArrayList<String> strings = null;
@@ -60,7 +62,7 @@ class ProgTest {
         Assert.assertEquals(new HashSet<String>(Arrays.asList("11", "222", "res")), set);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void simpleLow() {
         String[] args = {"-i", "E", path};
         ArrayList<String> strings = null;
@@ -73,7 +75,7 @@ class ProgTest {
         Assert.assertEquals(new HashSet<String>(Arrays.asList("tEst1", "res")), set);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void simpleReg() {
         String[] args = {"-r", "\\d+", path};
         ArrayList<String> strings = null;
@@ -83,6 +85,6 @@ class ProgTest {
             e.printStackTrace();
         }
         Set<String> set = new HashSet<String>(strings);
-        Assert.assertEquals(new HashSet<String>(Arrays.asList("11", "222")), set);
+        Assert.assertEquals(new HashSet<String>(Arrays.asList("11", "222", "tEst1")), set);
     }
 }
